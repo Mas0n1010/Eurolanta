@@ -18,28 +18,52 @@ A comprehensive activity logging and monitoring system for Roblox platform with 
 
 - **Framework**: Next.js 14 (React)
 - **Language**: TypeScript
-- **Database**: SQLite with Prisma ORM
+- **Database**: PostgreSQL with Prisma ORM
 - **Styling**: Tailwind CSS
 - **Authentication**: Custom session-based auth with bcrypt
+- **Deployment**: Vercel-ready
+
+## Quick Deploy to Vercel
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Mas0n1010/Eurolanta)
+
+For detailed deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md)
 
 ## Prerequisites
 
 - Node.js 18+ installed
 - npm or yarn package manager
+- PostgreSQL database (for production) or SQLite (for local dev)
 
-## Installation
+## Local Development Setup
 
-1. Install dependencies:
+1. Clone the repository:
+```bash
+git clone https://github.com/Mas0n1010/Eurolanta.git
+cd Eurolanta
+```
+
+2. Install dependencies:
 ```bash
 npm install
 ```
 
-2. Initialize the database:
+3. Set up environment variables:
 ```bash
-npm run db:push
+cp .env.example .env
 ```
 
-3. Create the initial admin user:
+Edit `.env` and add your database URL:
+```
+DATABASE_URL="postgresql://user:password@localhost:5432/roblox_logger"
+```
+
+4. Run database migrations:
+```bash
+npx prisma migrate deploy
+```
+
+5. Create the initial admin user:
 ```bash
 npx tsx scripts/setup.ts
 ```
