@@ -1,0 +1,17 @@
+# Ignore development database
+prisma/dev.db
+prisma/dev.db-journal
+
+# Ignore local env files
+.env
+.env.local
+
+# Node modules
+node_modules
+
+# Build files
+.next
+
+# Logs
+*.log
+npm-debug.log*

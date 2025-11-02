@@ -27,7 +27,7 @@ A comprehensive activity logging and monitoring system for Roblox platform with 
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Mas0n1010/Eurolanta)
 
-For detailed deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md)
+**📖 Step-by-step guide:** See [VERCEL_DEPLOY.md](VERCEL_DEPLOY.md) for complete deployment instructions
 
 ## Prerequisites
 
