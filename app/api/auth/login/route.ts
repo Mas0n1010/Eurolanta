@@ -39,10 +39,25 @@ export async function POST(request: NextRequest) {
         robloxUsername: user.robloxUsername,
       },
     })
-  } catch (error) {
+  } catch (error: any) {
     console.error('Login error:', error)
+
+    // Provide more specific error messages
+    let errorMessage = 'Internal server error'
+
+    if (error.message?.includes('prisma')) {
+      errorMessage = 'Database connection error. Please ensure the database is set up correctly.'
+    } else if (error.code === 'P2021') {
+      errorMessage = 'Database table does not exist. Please run database migrations.'
+    } else if (error.code === 'P1001') {
+      errorMessage = 'Cannot reach database server. Please check DATABASE_URL.'
+    }
+
     return NextResponse.json(
-      { error: 'Internal server error' },
+      {
+        error: errorMessage,
+        details: process.env.NODE_ENV === 'development' ? error.message : undefined
+      },
       { status: 500 }
     )
   }

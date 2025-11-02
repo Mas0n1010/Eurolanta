@@ -56,7 +56,15 @@ export default function LoginPage() {
         <form onSubmit={handleSubmit} className="space-y-6">
           {error && (
             <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
-              {error}
+              <p className="font-medium">{error}</p>
+              {(error.includes('database') || error.includes('Database') || error.includes('server')) && (
+                <a
+                  href="/setup"
+                  className="text-sm text-red-800 underline mt-2 block hover:text-red-900"
+                >
+                  → Check setup status and troubleshoot
+                </a>
+              )}
             </div>
           )}
 
